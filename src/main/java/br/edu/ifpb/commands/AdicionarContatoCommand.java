@@ -5,6 +5,7 @@ import main.java.br.edu.ifpb.service.ContatoService;
 import main.java.br.edu.ifpb.validators.EmailValidator;
 import main.java.br.edu.ifpb.validators.IntervalValidator;
 import main.java.br.edu.ifpb.validators.NonEmptyValidator;
+import main.java.br.edu.ifpb.validators.UserValidator;
 import main.java.br.edu.ifpb.validators.ValidationContext;
 
 public class AdicionarContatoCommand implements Command{
@@ -47,7 +48,7 @@ public class AdicionarContatoCommand implements Command{
             redeSocial = "Email";
 
             strValidationContext.setValidator(new EmailValidator(true));
-            valorDaEntrada = strValidationContext.getValidValue("Email: ", "Email não pode ser vazio", String.class);
+            valorDaEntrada = strValidationContext.getValidValue("Email: ", "Email não pode ser vazio e não pode estar no formato errado, formato correto: (name@example.com)", String.class);
             
         } else if(escolhaRedeSocial == 2){
             redeSocial = "WhatsApp";
@@ -57,6 +58,8 @@ public class AdicionarContatoCommand implements Command{
 
         } else if(escolhaRedeSocial == 3){
             redeSocial = "Instagram";
+
+            strValidationContext.setValidator(new UserValidator(true));
             valorDaEntrada = strValidationContext.getValidValue("Usuário: ", "Usuário não pode ser vazio", String.class);
             ligacao = true;
             chamadaVideo = true;
