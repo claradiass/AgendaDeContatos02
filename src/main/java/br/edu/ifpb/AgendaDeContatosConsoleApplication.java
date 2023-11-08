@@ -3,6 +3,7 @@ package main.java.br.edu.ifpb;
 import java.util.Scanner;
 
 import main.java.br.edu.ifpb.commands.AdicionarContatoCommand;
+import main.java.br.edu.ifpb.commands.BuscarContatoCommand;
 import main.java.br.edu.ifpb.commands.CommandExecutor;
 import main.java.br.edu.ifpb.commands.ListarContatosCommand;
 import main.java.br.edu.ifpb.commands.ListarContatosPorRedeCommand;
@@ -37,6 +38,7 @@ public class AgendaDeContatosConsoleApplication {
                 case 1 -> executor.executeCommand(new AdicionarContatoCommand());
                 case 2 -> executor.executeCommand(new ListarContatosCommand());
                 case 3 -> executor.executeCommand(new ListarContatosPorRedeCommand());
+                case 4 -> executor.executeCommand(new BuscarContatoCommand());
                 case 6 -> System.out.println("Tchau");
                 default -> System.out.println("Opção inválida");
                 
