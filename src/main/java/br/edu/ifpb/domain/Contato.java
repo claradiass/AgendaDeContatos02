@@ -12,22 +12,20 @@ public class Contato implements Serializable {
     private boolean ligacao;
     private boolean chamadaVideo;
     private String categoria;
-    private String tipoDeEntrada;
     private String valorDaEntrada;
     private String redeSocial;
-
+    private String telefone;
 
     // construtor
-    public Contato(String nome, String sobrenome, boolean ligacao, boolean chamadaVideo, String categoria,
-            String tipoDeEntrada, String valorDaEntrada, String redeSocial) {
+    public Contato(String nome, String sobrenome, boolean ligacao, boolean chamadaVideo, String categoria, String valorDaEntrada, String redeSocial, String telefone) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.ligacao = ligacao;
         this.chamadaVideo = chamadaVideo;
         this.categoria = categoria;
-        this.tipoDeEntrada = tipoDeEntrada;
         this.valorDaEntrada = valorDaEntrada;
         this.redeSocial = redeSocial;
+        this.telefone = telefone;
     }
 
     @Override
@@ -35,8 +33,7 @@ public class Contato implements Serializable {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Contato contato = (Contato) obj;
-        return Objects.equals(this.tipoDeEntrada, contato.tipoDeEntrada) &&
-            Objects.equals(this.valorDaEntrada, contato.valorDaEntrada);
+        return Objects.equals(this.valorDaEntrada, contato.valorDaEntrada);
             // compara se o contato tem o mesmo tipo de entrada e o mesmo valor da entrada
     }
 
@@ -93,14 +90,6 @@ public class Contato implements Serializable {
         this.categoria = categoria;
     }
 
-    public String getTipoDeEntrada() {
-        return tipoDeEntrada;
-    }
-
-    public void setTipoDeEntrada(String tipoDeEntrada) {
-        this.tipoDeEntrada = tipoDeEntrada;
-    }
-
     public String getValorDaEntrada() {
         return valorDaEntrada;
     }
@@ -115,6 +104,14 @@ public class Contato implements Serializable {
 
     public void setRedeSocial(String redeSocial) {
         this.redeSocial = redeSocial;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     // Este método está calculando o código hash (um valor numérico) com base apenas
