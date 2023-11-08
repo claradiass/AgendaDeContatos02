@@ -18,7 +18,7 @@ public class AgendaDeContatosConsoleApplication {
 
         int op = -1;
 
-        while (op != 7) {
+        while (op != 6) {
             System.out.println("\n=================================");
             System.out.println("MENU");
             System.out.println("[1] - Adicionar contato");
@@ -35,7 +35,7 @@ public class AgendaDeContatosConsoleApplication {
             switch (op) {
                 case 1 -> executor.executeCommand(new AdicionarContatoCommand());
                 case 2 -> executor.executeCommand(new ListarContatosCommand());
-                case 6 ->
+                case 6 -> System.out.println("Tchau");
                 default -> System.out.println("Opção inválida");
                 
             }
