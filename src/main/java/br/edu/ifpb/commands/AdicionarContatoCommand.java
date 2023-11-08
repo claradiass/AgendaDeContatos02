@@ -5,11 +5,8 @@ import main.java.br.edu.ifpb.service.ContatoService;
 import main.java.br.edu.ifpb.validators.EmailValidator;
 import main.java.br.edu.ifpb.validators.IntervalValidator;
 import main.java.br.edu.ifpb.validators.NonEmptyValidator;
-<<<<<<< HEAD
 import main.java.br.edu.ifpb.validators.UserValidator;
-=======
 import main.java.br.edu.ifpb.validators.TelefoneValidator;
->>>>>>> 1dfffd9668bc393b4d09d33f438d0f90b15d1488
 import main.java.br.edu.ifpb.validators.ValidationContext;
 
 public class AdicionarContatoCommand implements Command {
