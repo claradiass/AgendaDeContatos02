@@ -36,7 +36,7 @@ public class ExcluirContatoCommand implements Command {
         int indiceDigitado = intValidationContext.getValidValue("Digite o índice do Contato que você deseja remover: ", String.format("O índice deve ser um valor entre 1 e %d (inclusive)%n", indice), Integer.class);
 
         contatoService.remover(resultado.get(indiceDigitado - 1));
-        System.out.println("\nPaciente removido");
+        System.out.println("\nContato removido");
 
   }
   
