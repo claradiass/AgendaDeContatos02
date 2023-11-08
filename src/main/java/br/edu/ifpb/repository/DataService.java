@@ -18,7 +18,7 @@ public interface DataService {
 
     void remove(Contato c);
 
-    List<Contato> getContatosPorRedeSocial(RedeSocial redeSocial);
+    List<Contato> getContatosPorRedeSocial(String redeSocial);
 
     List<Contato> getContatosPorCategoria(String categoria);
 

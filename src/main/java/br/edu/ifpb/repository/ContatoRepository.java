@@ -61,7 +61,7 @@ public class ContatoRepository {
         return dataService.getContatosPorChamada(chamadaDeVideo);
     }
 
-    public List<Contato> getContatosPorRedeSocial(RedeSocial redeSocial) {
+    public List<Contato> getContatosPorRedeSocial(String redeSocial) {
         return dataService.getContatosPorRedeSocial(redeSocial);
     }
 
