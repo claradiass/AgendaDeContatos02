@@ -29,6 +29,10 @@ public class ContatoService {
         
     }
 
+    public boolean existe(String contato) {
+        return repository.exists(contato);
+    }
+
     public List<Contato> getContatos() {
         return repository.getAll();
     }

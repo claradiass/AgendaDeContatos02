@@ -14,7 +14,7 @@ public interface DataService {
 
     List<Contato> search(String termo);
 
-    boolean exists(Contato c);
+    boolean exists(String c);
 
     void remove(Contato c);
 
