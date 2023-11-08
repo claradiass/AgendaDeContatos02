@@ -37,7 +37,7 @@ public class AdicionarContatoCommand implements Command {
 
         strValidationContext.setValidator(new TelefoneValidator(true));
         String telefone = strValidationContext.getValidValue("Telefone: ",
-                "Telefone inválido, digite neste formato (xx) x xxxx-xxxx", String.class);
+                "Telefone inválido, digite neste formato (xx)xxxxx-xxxx", String.class);
 
         String aniversario = strValidationContext.getValidValue("Aniversário: ", "Telefone não pode ser vazio",
                 String.class);
