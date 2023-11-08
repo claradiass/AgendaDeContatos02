@@ -19,7 +19,6 @@ public class AdicionarContatoCommand implements Command{
 
     ValidationContext<String> strValidationContext = new ValidationContext<>(new NonEmptyValidator());
     
-    String tipoDeEntrada = "Ajeitar iss0";
 
         System.out.println("Escolha a Rede Social:");
         System.out.println("[1] - Email");
@@ -34,6 +33,8 @@ public class AdicionarContatoCommand implements Command{
 
         String nome = strValidationContext.getValidValue("Nome: ", "Nome não pode ser vazio", String.class);
         String sobrenome = strValidationContext.getValidValue("Sobrenome: ", "Sobrenome não pode ser vazio", String.class);
+        String telefone = strValidationContext.getValidValue("Telefone: ", "Telefone não pode ser vazio", String.class);
+
         
         boolean ligacao = false; 
         boolean chamadaVideo = false; 
@@ -64,7 +65,7 @@ public class AdicionarContatoCommand implements Command{
 
         
 
-        contatoService.criar(nome, sobrenome, ligacao, chamadaVideo, "nenhuma", tipoDeEntrada, valorDaEntrada, redeSocial);
+        contatoService.criar(nome, sobrenome, ligacao, chamadaVideo, "nenhuma", valorDaEntrada, redeSocial, telefone);
         System.out.println("Contato adicionado ao aplicativo " + redeSocial + " com sucesso!");
 
     }
