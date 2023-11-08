@@ -22,9 +22,9 @@ public class ContatoService {
 
 
 
-    public void criar(String nome, String sobrenome, boolean ligacao, boolean chamadaVideo, String categoria, String tipoDeEntrada, String valorDaEntrada, String redeSocial){
+    public void criar(String nome, String sobrenome, boolean ligacao, boolean chamadaVideo, String categoria, String valorDaEntrada, String redeSocial, String telefone, String aniversario){
         
-        repository.add(new Contato(nome, sobrenome, ligacao, chamadaVideo, categoria, tipoDeEntrada, valorDaEntrada, redeSocial));
+        repository.add(new Contato(nome, sobrenome, ligacao, chamadaVideo, categoria, valorDaEntrada, redeSocial, telefone, aniversario));
 
         
     }

@@ -1,7 +1,5 @@
 package main.java.br.edu.ifpb.commands;
 
-import main.java.br.edu.ifpb.domain.Contato;
-import main.java.br.edu.ifpb.domain.RedeSocial;
 import main.java.br.edu.ifpb.repository.ContatoRepository;
 import main.java.br.edu.ifpb.service.ContatoService;
 import main.java.br.edu.ifpb.validators.IntervalValidator;
@@ -13,9 +11,9 @@ public class AdicionarContatoCommand implements Command{
     public void execute(){
         ContatoService contatoService = new ContatoService(ContatoRepository.getInstance());
 
-        System.out.println("\n=================================");
+        System.out.println("\n-----------------------------------");
         System.out.println("Adicionar um novo contato");
-        System.out.println("=================================");
+        System.out.println("\n-----------------------------------");
 
     ValidationContext<String> strValidationContext = new ValidationContext<>(new NonEmptyValidator());
     
@@ -28,12 +26,16 @@ public class AdicionarContatoCommand implements Command{
 
         ValidationContext<Integer> intValidationContext = new ValidationContext<>(new IntervalValidator(1, 4));
 
-        int escolhaRedeSocial = intValidationContext.getValidValue("Escolha a opção desejada: ", "Escolha inválida", Integer.class);
+        int escolhaRedeSocial = intValidationContext.getValidValue("Escolha a opção desejada: ", "Escolha inválida, escolha entre 1 e 4 (inclusivo)", Integer.class);
         String redeSocial = "";
 
         String nome = strValidationContext.getValidValue("Nome: ", "Nome não pode ser vazio", String.class);
         String sobrenome = strValidationContext.getValidValue("Sobrenome: ", "Sobrenome não pode ser vazio", String.class);
+        
         String telefone = strValidationContext.getValidValue("Telefone: ", "Telefone não pode ser vazio", String.class);
+
+        String aniversario = strValidationContext.getValidValue("Aniversário: ", "Telefone não pode ser vazio", String.class);
+
 
         
         boolean ligacao = false; 
@@ -58,14 +60,14 @@ public class AdicionarContatoCommand implements Command{
 
         } else if(escolhaRedeSocial == 4){
             redeSocial = "Telegram";
-            valorDaEntrada = strValidationContext.getValidValue("Id: ", "Id não pode ser vazio", String.class);
+            valorDaEntrada = strValidationContext.getValidValue("d: ", "Id não pode ser vazio", String.class);
             ligacao = true;
         } 
 
 
         
 
-        contatoService.criar(nome, sobrenome, ligacao, chamadaVideo, "nenhuma", valorDaEntrada, redeSocial, telefone);
+        contatoService.criar(nome, sobrenome, ligacao, chamadaVideo, "nenhuma", valorDaEntrada, redeSocial, telefone, aniversario);
         System.out.println("Contato adicionado ao aplicativo " + redeSocial + " com sucesso!");
 
     }

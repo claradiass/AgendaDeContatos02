@@ -15,9 +15,12 @@ public class Contato implements Serializable {
     private String valorDaEntrada;
     private String redeSocial;
     private String telefone;
+    private String aniversario;
+
+
 
     // construtor
-    public Contato(String nome, String sobrenome, boolean ligacao, boolean chamadaVideo, String categoria, String valorDaEntrada, String redeSocial, String telefone) {
+    public Contato(String nome, String sobrenome, boolean ligacao, boolean chamadaVideo, String categoria, String valorDaEntrada, String redeSocial, String telefone, String aniversario) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.ligacao = ligacao;
@@ -26,6 +29,7 @@ public class Contato implements Serializable {
         this.valorDaEntrada = valorDaEntrada;
         this.redeSocial = redeSocial;
         this.telefone = telefone;
+        this.aniversario = aniversario;
     }
 
     @Override
@@ -112,6 +116,14 @@ public class Contato implements Serializable {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public String getAniversario() {
+        return aniversario;
+    }
+
+    public void setAniversario(String aniversario) {
+        this.aniversario = aniversario;
     }
 
     // Este método está calculando o código hash (um valor numérico) com base apenas
