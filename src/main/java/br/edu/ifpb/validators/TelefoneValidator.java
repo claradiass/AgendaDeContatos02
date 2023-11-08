@@ -16,8 +16,7 @@ public class TelefoneValidator implements Validator<String>{
 
   @Override
   public boolean validate(String data) {
-    String telefonePattern = "\\(\\d{2}\\)\\d{1}\\d{4}-\\d{4}";
-    
+    String telefonePattern = "\\(\\d{2}\\)\\d{5}-\\d{4}";
     Pattern pattern = Pattern.compile(telefonePattern);
     Matcher matcher = pattern.matcher(data);
 

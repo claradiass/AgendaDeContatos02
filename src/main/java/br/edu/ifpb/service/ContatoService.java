@@ -25,6 +25,10 @@ public class ContatoService {
         repository.add(new Contato(nome, sobrenome, ligacao, chamadaVideo, categoria, valorDaEntrada, redeSocial, telefone, aniversario));
     }
 
+    public List<Contato> buscar(String termo) {
+        return repository.search(termo);
+    }
+
     public boolean existe(String contato) {
         return repository.exists(contato);
     }

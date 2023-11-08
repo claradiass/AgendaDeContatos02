@@ -3,8 +3,10 @@ package main.java.br.edu.ifpb;
 import java.util.Scanner;
 
 import main.java.br.edu.ifpb.commands.AdicionarContatoCommand;
+import main.java.br.edu.ifpb.commands.BuscarContatoCommand;
 import main.java.br.edu.ifpb.commands.CommandExecutor;
 import main.java.br.edu.ifpb.commands.ListarContatosCommand;
+import main.java.br.edu.ifpb.commands.ListarContatosPorRedeCommand;
 import main.java.br.edu.ifpb.repository.ContatoRepository;
 import main.java.br.edu.ifpb.repository.FileDataService;
 
@@ -22,8 +24,8 @@ public class AgendaDeContatosConsoleApplication {
             System.out.println("\n=================================");
             System.out.println("MENU");
             System.out.println("[1] - Adicionar contato");
-            System.out.println("[2] - Editar contato");
-            System.out.println("[3] - Listar contatos");
+            System.out.println("[2] - Listar contatos");
+            System.out.println("[3] - Listar contatos por categoria");
             System.out.println("[4] - Buscar contatos");
             System.out.println("[5] - Excluir contato");
             System.out.println("[6] - Sair");
@@ -35,6 +37,8 @@ public class AgendaDeContatosConsoleApplication {
             switch (op) {
                 case 1 -> executor.executeCommand(new AdicionarContatoCommand());
                 case 2 -> executor.executeCommand(new ListarContatosCommand());
+                case 3 -> executor.executeCommand(new ListarContatosPorRedeCommand());
+                case 4 -> executor.executeCommand(new BuscarContatoCommand());
                 case 6 -> System.out.println("Tchau");
                 default -> System.out.println("Opção inválida");
                 
