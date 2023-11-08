@@ -45,7 +45,7 @@ public class ContatoRepository {
         return dataService.search(termo);
     }
 
-    public boolean exists(Contato contato) {
+    public boolean exists(String contato) {
         return dataService.exists(contato);
     }
 
