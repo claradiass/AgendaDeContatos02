@@ -1,0 +1,35 @@
+package main.java.br.edu.ifpb.service;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Scanner;
+
+import java.text.ParseException;
+
+
+import main.java.br.edu.ifpb.domain.Contato;
+import main.java.br.edu.ifpb.domain.RedeSocial;
+import main.java.br.edu.ifpb.repository.ContatoRepository;
+
+public class ContatoService {
+    private final ContatoRepository repository;
+
+    public ContatoService(ContatoRepository repository) {
+        this.repository = repository;
+    }
+
+
+
+    public void criar(String nome, String sobrenome, boolean ligacao, boolean chamadaVideo, String categoria, String tipoDeEntrada, String valorDaEntrada, String redeSocial){
+        
+        repository.add(new Contato(nome, sobrenome, ligacao, chamadaVideo, categoria, tipoDeEntrada, valorDaEntrada, redeSocial));
+
+        
+    }
+
+    public List<Contato> getContatos() {
+        return repository.getAll();
+    }
+}
