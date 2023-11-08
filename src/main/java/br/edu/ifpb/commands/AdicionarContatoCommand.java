@@ -4,6 +4,7 @@ import main.java.br.edu.ifpb.repository.ContatoRepository;
 import main.java.br.edu.ifpb.service.ContatoService;
 import main.java.br.edu.ifpb.validators.IntervalValidator;
 import main.java.br.edu.ifpb.validators.NonEmptyValidator;
+import main.java.br.edu.ifpb.validators.TelefoneValidator;
 import main.java.br.edu.ifpb.validators.ValidationContext;
 
 public class AdicionarContatoCommand implements Command{
@@ -31,8 +32,9 @@ public class AdicionarContatoCommand implements Command{
 
         String nome = strValidationContext.getValidValue("Nome: ", "Nome não pode ser vazio", String.class);
         String sobrenome = strValidationContext.getValidValue("Sobrenome: ", "Sobrenome não pode ser vazio", String.class);
-        
-        String telefone = strValidationContext.getValidValue("Telefone: ", "Telefone não pode ser vazio", String.class);
+
+        strValidationContext.setValidator(new TelefoneValidator(true));
+        String telefone = strValidationContext.getValidValue("Telefone: ", "Telefone inválido, digite neste formato (xx) x xxxx-xxxx", String.class);
 
         String aniversario = strValidationContext.getValidValue("Aniversário: ", "Telefone não pode ser vazio", String.class);
 
