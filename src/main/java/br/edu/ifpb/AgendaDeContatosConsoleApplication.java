@@ -35,7 +35,7 @@ public class AgendaDeContatosConsoleApplication {
             switch (op) {
                 case 1 -> executor.executeCommand(new AdicionarContatoCommand());
                 case 2 -> executor.executeCommand(new ListarContatosCommand());
-            
+                case 6 ->
                 default -> System.out.println("Opção inválida");
                 
             }
