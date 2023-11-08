@@ -2,6 +2,7 @@ package main.java.br.edu.ifpb.commands;
 
 import main.java.br.edu.ifpb.repository.ContatoRepository;
 import main.java.br.edu.ifpb.service.ContatoService;
+import main.java.br.edu.ifpb.validators.AniversarioValidator;
 import main.java.br.edu.ifpb.validators.EmailValidator;
 import main.java.br.edu.ifpb.validators.IntervalValidator;
 import main.java.br.edu.ifpb.validators.NonEmptyValidator;
@@ -33,6 +34,7 @@ public class AdicionarContatoCommand implements Command {
         String redeSocial = "";
 
         String nome = strValidationContext.getValidValue("Nome: ", "Nome não pode ser vazio", String.class);
+        
         String sobrenome = strValidationContext.getValidValue("Sobrenome: ", "Sobrenome não pode ser vazio",
                 String.class);
 
@@ -40,7 +42,8 @@ public class AdicionarContatoCommand implements Command {
         String telefone = strValidationContext.getValidValue("Telefone: ",
                 "Telefone inválido, digite neste formato (xx)xxxxx-xxxx", String.class);
 
-        String aniversario = strValidationContext.getValidValue("Aniversário: ", "Telefone não pode ser vazio",
+        strValidationContext.setValidator(new AniversarioValidator());
+        String aniversario = strValidationContext.getValidValue("Aniversário: ", "Aniversario não pode ser vazio",
                 String.class);
 
         boolean ligacao = false;
@@ -57,8 +60,6 @@ public class AdicionarContatoCommand implements Command {
         } else if(escolhaRedeSocial == 2){
 
             redeSocial = "WhatsApp";
-            valorDaEntrada = strValidationContext.getValidValue("Contato: ", "Contato não pode ser vazio",
-                    String.class);
             ligacao = true;
             chamadaVideo = true;
 
