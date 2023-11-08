@@ -10,8 +10,9 @@ public class ListarContatosCommand implements Command {
     public void execute() {
         ContatoService contatoService = new ContatoService(ContatoRepository.getInstance());
 
-        System.out.println("\n\n=================================");
+        System.out.println("\n=================================");
         System.out.println("Listar contatos\n");
+        System.out.println("=================================");
 
         for(Contato c: contatoService.getContatos()){
             System.out.println(c);

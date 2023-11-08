@@ -20,13 +20,9 @@ public class ContatoService {
         this.repository = repository;
     }
 
-
-
     public void criar(String nome, String sobrenome, boolean ligacao, boolean chamadaVideo, String categoria, String valorDaEntrada, String redeSocial, String telefone, String aniversario){
         
         repository.add(new Contato(nome, sobrenome, ligacao, chamadaVideo, categoria, valorDaEntrada, redeSocial, telefone, aniversario));
-
-        
     }
 
     public boolean existe(String contato) {
@@ -36,4 +32,9 @@ public class ContatoService {
     public List<Contato> getContatos() {
         return repository.getAll();
     }
+
+    public void remover(Contato c){
+        repository.remove(c);
+    }
+
 }

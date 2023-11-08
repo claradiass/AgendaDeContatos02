@@ -17,7 +17,7 @@ public class AdicionarContatoCommand implements Command {
 
         System.out.println("\n-----------------------------------");
         System.out.println("Adicionar um novo contato");
-        System.out.println("\n-----------------------------------");
+        System.out.println("-----------------------------------");
 
         ValidationContext<String> strValidationContext = new ValidationContext<>(new NonEmptyValidator());
 
@@ -77,8 +77,23 @@ public class AdicionarContatoCommand implements Command {
             ligacao = true;
         }
 
-        contatoService.criar(nome, sobrenome, ligacao, chamadaVideo, "nenhuma", valorDaEntrada, redeSocial, telefone,
-                aniversario);
+        System.out.println("\nEscolha uma categoria:");
+        System.out.println("[1] - Favoritos");
+        System.out.println("[2] - Pessoal");
+        System.out.println("[3] - Trabalho");
+
+        int escolhaCategoria = intValidationContext.getValidValue("Escolha a opção desejada: ", "Escolha inválida, escolha entre 1 e 3 (inclusivo)", Integer.class);
+        String categoria = "";
+        
+        if(escolhaCategoria == 1){
+            categoria = "Favoritos";
+        }else if(escolhaCategoria == 2){
+            categoria = "Pessoal";
+        }else if(escolhaCategoria == 3){
+            categoria = "Trabalho";
+        }
+
+        contatoService.criar(nome, sobrenome, ligacao, chamadaVideo, categoria, valorDaEntrada, redeSocial, telefone, aniversario);
         System.out.println("Contato adicionado ao aplicativo " + redeSocial + " com sucesso!");
 
     }
