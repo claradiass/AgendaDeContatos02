@@ -6,7 +6,11 @@ import main.java.br.edu.ifpb.validators.AniversarioValidator;
 import main.java.br.edu.ifpb.validators.EmailValidator;
 import main.java.br.edu.ifpb.validators.IntervalValidator;
 import main.java.br.edu.ifpb.validators.NonEmptyValidator;
+<<<<<<< HEAD
+import main.java.br.edu.ifpb.validators.UserValidator;
+=======
 import main.java.br.edu.ifpb.validators.TelefoneValidator;
+>>>>>>> 1dfffd9668bc393b4d09d33f438d0f90b15d1488
 import main.java.br.edu.ifpb.validators.ValidationContext;
 
 public class AdicionarContatoCommand implements Command {
@@ -53,18 +57,21 @@ public class AdicionarContatoCommand implements Command {
             redeSocial = "Email";
 
             strValidationContext.setValidator(new EmailValidator(true));
-            valorDaEntrada = strValidationContext.getValidValue("Email: ", "Email não pode ser vazio", String.class);
 
-        } else if (escolhaRedeSocial == 2) {
+            valorDaEntrada = strValidationContext.getValidValue("Email: ", "Email não pode ser vazio e não pode estar no formato errado, formato correto: (name@example.com)", String.class);
+            
+        } else if(escolhaRedeSocial == 2){
+
             redeSocial = "WhatsApp";
             ligacao = true;
             chamadaVideo = true;
 
         } else if (escolhaRedeSocial == 3) {
             redeSocial = "Instagram";
-            valorDaEntrada = strValidationContext.getValidValue("Usuário: ", "Usuário não pode ser vazio",
-                    String.class);
-            ligacao = true;
+
+            strValidationContext.setValidator(new UserValidator(true));
+            valorDaEntrada = strValidationContext.getValidValue("Usuário: ", "Usuário não pode ser vazio", String.class);
+
             chamadaVideo = true;
 
         } else if (escolhaRedeSocial == 4) {
