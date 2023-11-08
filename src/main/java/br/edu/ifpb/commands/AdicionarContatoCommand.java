@@ -2,6 +2,7 @@ package main.java.br.edu.ifpb.commands;
 
 import main.java.br.edu.ifpb.repository.ContatoRepository;
 import main.java.br.edu.ifpb.service.ContatoService;
+import main.java.br.edu.ifpb.validators.EmailValidator;
 import main.java.br.edu.ifpb.validators.IntervalValidator;
 import main.java.br.edu.ifpb.validators.NonEmptyValidator;
 import main.java.br.edu.ifpb.validators.ValidationContext;
@@ -44,6 +45,8 @@ public class AdicionarContatoCommand implements Command{
 
         if (escolhaRedeSocial == 1) {
             redeSocial = "Email";
+
+            strValidationContext.setValidator(new EmailValidator(true));
             valorDaEntrada = strValidationContext.getValidValue("Email: ", "Email não pode ser vazio", String.class);
             
         } else if(escolhaRedeSocial == 2){

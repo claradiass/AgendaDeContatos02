@@ -34,8 +34,8 @@ public class InMemoryDataService implements DataService {
     }
 
     @Override
-    public boolean exists(Contato c) {
-        return contatos.stream().anyMatch(contact -> contact.getValorDaEntrada() == c.getValorDaEntrada());
+    public boolean exists(String contato) {
+        return contatos.stream().anyMatch(c -> c.getTelefone().equals(contato));
     }
 
     @Override
@@ -58,7 +58,7 @@ public class InMemoryDataService implements DataService {
     }
 
     @Override
-    public List<Contato> getContatosPorRedeSocial(RedeSocial redeSocial) {
+    public List<Contato> getContatosPorRedeSocial(String redeSocial) {
         return contatos.stream()
             .filter(contato -> contato.getRedeSocial().equals(redeSocial))
             .collect(Collectors.toList());
