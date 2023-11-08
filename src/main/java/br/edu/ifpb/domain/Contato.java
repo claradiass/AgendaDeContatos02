@@ -42,8 +42,9 @@ public class Contato implements Serializable {
     }
 
     public String toString() {
-        return "Nome:" + getNome() + " Sobrenome:" + getSobrenome() + " Recebe Ligação?" + isLigacao() + " Essa ligação pode ser uma chamada de vídeo?" + 
-        isChamadaVideo() + " Rede social: " + getRedeSocial() + " Dado específico: " + getValorDaEntrada() + " Categoria: " + getCategoria();
+        return "Nome:" + getNome() + "\nSobrenome:" + getSobrenome() + "\nRecebe Ligação?" + isLigacao() + "\nEssa ligação pode ser uma chamada de vídeo?" + 
+        isChamadaVideo() + "\nRede social: " + getRedeSocial() + "\nDado específico: " + getValorDaEntrada() + "\nCategoria: " + getCategoria() + "\n";
+        
     }
 
     // sobrescrita
