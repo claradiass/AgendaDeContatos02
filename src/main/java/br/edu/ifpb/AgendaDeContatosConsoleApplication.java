@@ -25,11 +25,11 @@ public class AgendaDeContatosConsoleApplication {
         while (op != 7) {
             System.out.println("\n=================================");
             System.out.println("MENU");
-            System.out.println("=================================");
+            System.out.println("=================================\n");
 
             System.out.println("[1] - Adicionar contato");
             System.out.println("[2] - Listar contatos");
-            System.out.println("[3] - Listar contatos por categoria");
+            System.out.println("[3] - Listar contatos por Rede Social");
             System.out.println("[4] - Buscar contatos");
             System.out.println("[5] - Excluir contato");
             System.out.println("[6] - Editar contato");
@@ -46,7 +46,7 @@ public class AgendaDeContatosConsoleApplication {
                 case 4 -> executor.executeCommand(new BuscarContatoCommand());
                 case 5 -> executor.executeCommand(new ExcluirContatoCommand());
                 case 6 -> executor.executeCommand(new EditarContatoCommand());
-                case 7 -> System.out.println("Tchau");
+                case 7 -> System.out.println("Tchau tchau!");
                 default -> System.out.println("Opção inválida");
                 
             }

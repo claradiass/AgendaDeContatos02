@@ -15,9 +15,9 @@ public class ExcluirContatoCommand implements Command {
   public void execute() {
     ContatoService contatoService = new ContatoService(ContatoRepository.getInstance());
 
-        System.out.println("\n-----------------------------------");
+        System.out.println("\n=================================");
         System.out.println("Excluir contato\nBusque um contato para excluir");
-        System.out.println("\n-----------------------------------");
+        System.out.println("=================================\n");
 
         ValidationContext<String> strValidationContext = new ValidationContext<>(new NonEmptyValidator());
         String termo = strValidationContext.getValidValue("Digite parte do nome para buscar: ", "O termo de busca não pode ser vazio", String.class);

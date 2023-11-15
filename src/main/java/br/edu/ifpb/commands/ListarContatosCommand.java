@@ -11,8 +11,8 @@ public class ListarContatosCommand implements Command {
         ContatoService contatoService = new ContatoService(ContatoRepository.getInstance());
 
         System.out.println("\n=================================");
-        System.out.println("Listar contatos\n");
-        System.out.println("=================================");
+        System.out.println("Listar contatos");
+        System.out.println("=================================\n");
 
         for(Contato c: contatoService.getContatos()){
             System.out.println(c);

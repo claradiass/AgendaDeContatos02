@@ -6,8 +6,11 @@ import main.java.br.edu.ifpb.service.ContatoService;
 import main.java.br.edu.ifpb.validators.IntervalValidator;
 import main.java.br.edu.ifpb.validators.NonEmptyValidator;
 import main.java.br.edu.ifpb.validators.ValidationContext;
+import main.java.br.edu.ifpb.validators.OpcionalDateValidator;
+
 import java.util.List;
 import java.util.Scanner;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 
@@ -20,8 +23,8 @@ public class EditarContatoCommand implements Command{
 
         System.out.println("\n=================================");
         System.out.println("Editar contato");
-        System.out.println("\n=================================");
-        System.out.println("Busque um contato para editar");
+        System.out.println("=================================\n");
+        System.out.println("Busque um contato para editar\n");
 
         ValidationContext<String> strValidationContext = new ValidationContext<>(new NonEmptyValidator());
         String termo = strValidationContext.getValidValue("Digite parte do nome para buscar: ", "Termo de busca não pode ser vazio", String.class);
@@ -55,9 +58,9 @@ public class EditarContatoCommand implements Command{
         String valorDaEntrada = new Scanner(System.in).nextLine();
 
         //Temos que fazer essa validação
-        //strValidationContext.setValidator(new OptionalDateValidator());
+        strValidationContext.setValidator(new OpcionalDateValidator());
         String dataStr = strValidationContext.getValidValue("Digite uma nova data de nascimento (ou deixe vazio para não mudar): ", "Formato de data incorreto, use o formato 'dd/MM/yyyy'", String.class);
-        //SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
         System.out.print("Digite uma nova categoria (ou deixe vazio para não mudar): ");
         String categoria = new Scanner(System.in).nextLine();
@@ -86,6 +89,7 @@ public class EditarContatoCommand implements Command{
       if (!dataStr.equals("")) {
         toEdit.setAniversario(dataStr);
       }
+
 
       if (!categoria.equals("")) {
           toEdit.setCategoria(categoria);

@@ -17,7 +17,8 @@ public class BuscarContatoCommand implements Command{
 
 
         System.out.println("\n=================================");
-        System.out.println("Buscar contatos\n");
+        System.out.println("Buscar contatos");
+        System.out.println("=================================\n");
         System.out.print("Digite parte do nome para buscar: ");
         ValidationContext<String> strValidationContext = new ValidationContext<>(new NonEmptyValidator());
 

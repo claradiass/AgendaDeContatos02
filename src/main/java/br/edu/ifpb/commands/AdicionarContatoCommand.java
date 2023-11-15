@@ -15,9 +15,9 @@ public class AdicionarContatoCommand implements Command {
     public void execute() {
         ContatoService contatoService = new ContatoService(ContatoRepository.getInstance());
 
-        System.out.println("\n-----------------------------------");
+        System.out.println("\n=================================");
         System.out.println("Adicionar um novo contato");
-        System.out.println("-----------------------------------");
+        System.out.println("=================================\n");
 
         ValidationContext<String> strValidationContext = new ValidationContext<>(new NonEmptyValidator());
 
@@ -94,7 +94,7 @@ public class AdicionarContatoCommand implements Command {
         }
 
         contatoService.criar(nome, sobrenome, ligacao, chamadaVideo, categoria, valorDaEntrada, redeSocial, telefone, aniversario);
-        System.out.println("Contato adicionado ao aplicativo " + redeSocial + " com sucesso!");
+        System.out.println("\nContato adicionado ao aplicativo " + redeSocial + " com sucesso!\n");
 
     }
 }

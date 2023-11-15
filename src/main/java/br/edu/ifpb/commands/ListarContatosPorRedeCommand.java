@@ -9,17 +9,42 @@ public class ListarContatosPorRedeCommand implements Command {
     public void execute() {
         ContatoService contatoService = new ContatoService(ContatoRepository.getInstance());
 
-        System.out.println("\n\n=================================");
-        System.out.println("Listar contatos por Rede Social\n");
+        System.out.println("\n=================================");
+        System.out.println("Listar contatos por Rede Social");
+        System.out.println("=================================\n");
 
-        String atributoRedeSocial = "Instagram"; // Atributo de rede social desejado (por exemplo, "Instagram")
+
+        String atributoRedeSocial1 = "Instagram"; // Atributo de rede social desejado (por exemplo, "Instagram")
+        String atributoRedeSocial2 = "Email";
+        String atributoRedeSocial3 = "WhatsApp";        
+        String atributoRedeSocial4 = "Telegram";
+
+        
 
         for (Contato c : contatoService.getContatos()) {
-            if (c.getRedeSocial() != null && c.getRedeSocial().equals(atributoRedeSocial)) {
+            if (c.getRedeSocial() != null && c.getRedeSocial().equals(atributoRedeSocial1)) {
                 System.out.println("Nome: " + c.getNome());
                 System.out.println("Rede Social: " + c.getRedeSocial());
                 // Adicione outros atributos relevantes aqui
-                System.out.println("====================");
+                System.out.println("-------------------------");
+            }
+            if (c.getRedeSocial() != null && c.getRedeSocial().equals(atributoRedeSocial2)) {
+                System.out.println("Nome: " + c.getNome());
+                System.out.println("Rede Social: " + c.getRedeSocial());
+                // Adicione outros atributos relevantes aqui
+                System.out.println("-------------------------");
+            }
+            if (c.getRedeSocial() != null && c.getRedeSocial().equals(atributoRedeSocial3)) {
+                System.out.println("Nome: " + c.getNome());
+                System.out.println("Rede Social: " + c.getRedeSocial());
+                // Adicione outros atributos relevantes aqui
+                System.out.println("-------------------------");
+            }
+            if (c.getRedeSocial() != null && c.getRedeSocial().equals(atributoRedeSocial4)) {
+                System.out.println("Nome: " + c.getNome());
+                System.out.println("Rede Social: " + c.getRedeSocial());
+                // Adicione outros atributos relevantes aqui
+                System.out.println("-------------------------");
             }
         }
     }
